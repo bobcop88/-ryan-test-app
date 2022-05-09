@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:ryanairapp/api/roundtrip_api.dart';
 import 'package:ryanairapp/api/rt_anywhere_api.dart';
 import 'package:ryanairapp/utils/depairport.dart';
+import 'package:ryanairapp/widgets/widgets.dart';
 import 'dart:math' as math;
 
 import 'package:url_launcher/url_launcher.dart';
@@ -461,82 +462,83 @@ class _RoundTripAnywhereResultsState extends State<RoundTripAnywhereResults> {
                 
                 
               }else if (snapshot.hasError){
-                return Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Card(
-                              elevation: 5,
-                              child: Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
-                                        child: Transform.rotate(
-                                          angle: math.pi/2,
-                                          child: Icon(
-                                            Icons.airplanemode_inactive_rounded,
-                                            size: 30.0,
-                                            color: Colors.red,
-                                            ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Oops...',
-                                        style: TextStyle(
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold,
+                return NoFlights(backPage: '/roundtripRyanair');
+                // Column(
+                //           mainAxisAlignment: MainAxisAlignment.center,
+                //           children: [
+                //             Card(
+                //               elevation: 5,
+                //               child: Column(
+                //                 children: [
+                //                   Row(
+                //                     mainAxisAlignment: MainAxisAlignment.center,
+                //                     children: [
+                //                       Padding(
+                //                         padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                //                         child: Transform.rotate(
+                //                           angle: math.pi/2,
+                //                           child: Icon(
+                //                             Icons.airplanemode_inactive_rounded,
+                //                             size: 30.0,
+                //                             color: Colors.red,
+                //                             ),
+                //                         ),
+                //                       ),
+                //                     ],
+                //                   ),
+                //                   Row(
+                //                     mainAxisAlignment: MainAxisAlignment.center,
+                //                     children: [
+                //                       Text(
+                //                         'Oops...',
+                //                         style: TextStyle(
+                //                           fontSize: 20.0,
+                //                           fontWeight: FontWeight.bold,
                                           
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                                        child: Text(
-                                          'No flights are available in the dates selected',
-                                          style: TextStyle(
-                                            fontSize: 17.0,
-                                            fontWeight: FontWeight.w400,
+                //                         ),
+                //                       ),
+                //                     ],
+                //                   ),
+                //                   Row(
+                //                     mainAxisAlignment: MainAxisAlignment.center,
+                //                     children: [
+                //                       Padding(
+                //                         padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                //                         child: Text(
+                //                           'No flights are available in the dates selected',
+                //                           style: TextStyle(
+                //                             fontSize: 17.0,
+                //                             fontWeight: FontWeight.w400,
                                             
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(bottom: 10.0),
-                                        child: ElevatedButton(
-                                          child: Text(
-                                            'Change Dates'
-                                          ),
-                                          onPressed: () {
-                                            DepAirport.removeDateFromSelected();
-                                            DepAirport.removeDateToSelected();
-                                            Navigator.popAndPushNamed(context, '/roundtripRyanair');
-                                          },
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                //                           ),
+                //                         ),
+                //                       ),
+                //                     ],
+                //                   ),
+                //                   Row(
+                //                     mainAxisAlignment: MainAxisAlignment.center,
+                //                     children: [
+                //                       Padding(
+                //                         padding: const EdgeInsets.only(bottom: 10.0),
+                //                         child: ElevatedButton(
+                //                           child: Text(
+                //                             'Change Dates'
+                //                           ),
+                //                           onPressed: () {
+                //                             DepAirport.removeDateFromSelected();
+                //                             DepAirport.removeDateToSelected();
+                //                             Navigator.popAndPushNamed(context, '/roundtripRyanair');
+                //                           },
+                //                         ),
+                //                       ),
+                //                     ],
+                //                   ),
+                //                 ],
+                //               ),
                               
-                            ),
-                          ],
-                        );
+                //             ),
+                //           ],
+                //         );
               }
               return const CircularProgressIndicator();
             },

@@ -75,7 +75,7 @@ class _OneWayPageState extends State<OneWayPage> {
             'Ryanair - One Way Flights'
           ),
           leading: IconButton(
-            icon: Icon(Icons.home),
+            icon: ImageIcon(AssetImage('assets/CheapFly.png')),
             onPressed: () {
     
               DepAirport.removeValueDestName();
@@ -88,7 +88,6 @@ class _OneWayPageState extends State<OneWayPage> {
           ),
         ),
         body: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
           
           children: [
             Padding(

@@ -17,6 +17,11 @@ class OneWayAnywhereResults {
 
     List<OneWayFlights> tempflights = [];
 
+    if(json['total'] == 0) {
+      print('error');
+      throw Error();
+    }
+
     for (int i = 0; i < json['fares'].length; i++){
       OneWayFlights flights = OneWayFlights.fromJson(json['fares'][i]);
       tempflights.add(flights);
@@ -36,7 +41,7 @@ class OneWayFlights{
   final String flightNumber;
   final double priceValue;
   final String priceCurrency;
-  final int? totalCheck;
+  final int totalCheck;
 
 
   OneWayFlights({
@@ -55,9 +60,7 @@ class OneWayFlights{
 
   factory OneWayFlights.fromJson(Map<String, dynamic> json){
 
-    if(json['total'] == 0){
-      throw Error();
-    }else{
+    
 
         return OneWayFlights(
         totalCheck: json['total'],
@@ -75,7 +78,7 @@ class OneWayFlights{
 
 
 
-    }
+    
   }
 
 }
@@ -90,6 +93,7 @@ Future<OneWayAnywhereResults> fetchOneWayAnywhereResults() async {
 
     return results;
   }catch(e){
+    print(e);
     return Future.error(e);
   }
 }
