@@ -65,33 +65,57 @@ class _DateRangePickerWidgetState extends State<DateRangePickerWidget> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'When would you like to travel?',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                      ),
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Enter the period of time',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 300.0,
+                              child: Text(
+                                'Select the period of time in which you would like to find the cheapest flight available',
+                                overflow: TextOverflow.visible,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    Tooltip(
-                        message: 'Here you can enter the period of time in which you would like to find the cheapest flight',
-                        padding: EdgeInsets.all(10.0),
-                        preferBelow: false,
-                        showDuration: Duration(seconds: 2),
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(32, 145, 235,1),
-                        ),
-                        textStyle: TextStyle(
-                          color: Colors.white,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 2.0, left: 3.0),
-                          child: Icon(
-                            Icons.info,
-                            size: 15.0,
-                            color: Color.fromRGBO(32, 145, 235,1) ,
-                          ),
-                        ),
-                        triggerMode: TooltipTriggerMode.tap,
-                      ),
+                    // Tooltip(
+                    //     message: 'Here you can enter the period of time in which you would like to find the cheapest flight',
+                    //     padding: EdgeInsets.all(10.0),
+                    //     preferBelow: false,
+                    //     showDuration: Duration(seconds: 2),
+                    //     decoration: BoxDecoration(
+                    //       color: Color.fromRGBO(32, 145, 235,1),
+                    //     ),
+                    //     textStyle: TextStyle(
+                    //       color: Colors.white,
+                    //     ),
+                    //     child: Padding(
+                    //       padding: const EdgeInsets.only(top: 2.0, left: 3.0),
+                    //       child: Icon(
+                    //         Icons.info,
+                    //         size: 15.0,
+                    //         color: Color.fromRGBO(32, 145, 235,1) ,
+                    //       ),
+                    //     ),
+                    //     triggerMode: TooltipTriggerMode.tap,
+                    //   ),
                   ],
                 ),
               ),
@@ -226,33 +250,57 @@ class _DateRangePickerWidgetState extends State<DateRangePickerWidget> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Which period will you travel?',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                      ),
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Enter the period of time',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 300.0,
+                              child: Text(
+                                'Select the period of time in which you would like to find the cheapest flight available',
+                                overflow: TextOverflow.visible,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
                     ),
-                    Tooltip(
-                        message: 'Here you can enter the period of time in which you would like to find the cheapest flight',
-                        padding: EdgeInsets.all(10.0),
-                        preferBelow: false,
-                        showDuration: Duration(seconds: 2),
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(32, 145, 235,1),
-                        ),
-                        textStyle: TextStyle(
-                          color: Colors.white,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 1.0, left: 5.0),
-                          child: Icon(
-                            Icons.info,
-                            size: 18.0,
-                            color: Color.fromRGBO(32, 145, 235,1) ,
-                          ),
-                        ),
-                        triggerMode: TooltipTriggerMode.tap,
-                      ),
+                    // Tooltip(
+                    //     message: 'Here you can enter the period of time in which you would like to find the cheapest flight',
+                    //     padding: EdgeInsets.all(10.0),
+                    //     preferBelow: false,
+                    //     showDuration: Duration(seconds: 2),
+                    //     decoration: BoxDecoration(
+                    //       color: Color.fromRGBO(32, 145, 235,1),
+                    //     ),
+                    //     textStyle: TextStyle(
+                    //       color: Colors.white,
+                    //     ),
+                    //     child: Padding(
+                    //       padding: const EdgeInsets.only(top: 1.0, left: 5.0),
+                    //       child: Icon(
+                    //         Icons.info,
+                    //         size: 18.0,
+                    //         color: Color.fromRGBO(32, 145, 235,1) ,
+                    //       ),
+                    //     ),
+                    //     triggerMode: TooltipTriggerMode.tap,
+                    //   ),
                   ],
                 ),
               ),
@@ -637,33 +685,37 @@ class _DateAnywhereState extends State<DateAnywhere> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'When would you like to travel?',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                      ),
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Enter the period of time',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 300.0,
+                              child: Text(
+                                'Select the period of time in which you would like to find the cheapest flight available',
+                                overflow: TextOverflow.visible,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
                     ),
-                    Tooltip(
-                        message: 'Here you can enter the period of time in which you would like to find the cheapest flight',
-                        padding: EdgeInsets.all(10.0),
-                        preferBelow: false,
-                        showDuration: Duration(seconds: 2),
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(32, 145, 235,1),
-                        ),
-                        textStyle: TextStyle(
-                          color: Colors.white,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 1.0, left: 5.0),
-                          child: Icon(
-                            Icons.info,
-                            size: 18.0,
-                            color: Color.fromRGBO(32, 145, 235,1) ,
-                          ),
-                        ),
-                        triggerMode: TooltipTriggerMode.tap,
-                      ),
+
                   ],
                 ),
               ),
@@ -794,33 +846,57 @@ class _DateAnywhereState extends State<DateAnywhere> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Which period will you travel?',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                      ),
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Enter the period of time',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 300.0,
+                              child: Text(
+                                'Select the period of time in which you would like to find the cheapest flight available',
+                                overflow: TextOverflow.visible,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
                     ),
-                    Tooltip(
-                        message: 'Here you can enter the period of time in which you would like to find the cheapest flight',
-                        padding: EdgeInsets.all(10.0),
-                        preferBelow: false,
-                        showDuration: Duration(seconds: 2),
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(32, 145, 235,1),
-                        ),
-                        textStyle: TextStyle(
-                          color: Colors.white,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 1.0, left: 5.0),
-                          child: Icon(
-                            Icons.info,
-                            size: 18.0,
-                            color: Color.fromRGBO(32, 145, 235,1) ,
-                          ),
-                        ),
-                        triggerMode: TooltipTriggerMode.tap,
-                      ),
+                    // Tooltip(
+                    //     message: 'Here you can enter the period of time in which you would like to find the cheapest flight',
+                    //     padding: EdgeInsets.all(10.0),
+                    //     preferBelow: false,
+                    //     showDuration: Duration(seconds: 2),
+                    //     decoration: BoxDecoration(
+                    //       color: Color.fromRGBO(32, 145, 235,1),
+                    //     ),
+                    //     textStyle: TextStyle(
+                    //       color: Colors.white,
+                    //     ),
+                    //     child: Padding(
+                    //       padding: const EdgeInsets.only(top: 1.0, left: 5.0),
+                    //       child: Icon(
+                    //         Icons.info,
+                    //         size: 18.0,
+                    //         color: Color.fromRGBO(32, 145, 235,1) ,
+                    //       ),
+                    //     ),
+                    //     triggerMode: TooltipTriggerMode.tap,
+                    //   ),
                   ],
                 ),
               ),

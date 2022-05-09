@@ -12,7 +12,9 @@ import 'dart:io';
 
 import 'package:ryanairapp/onway.dart';
 import 'package:ryanairapp/utils/depairport.dart';
+import 'dart:math' as math;
 
+import 'package:ryanairapp/widgets/widgets.dart';
 
 
 
@@ -30,19 +32,7 @@ class _HomePageState extends State<HomePage> {
 
   bool hasInternet = false;
 
-  List<String> images = [
-    'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?cs=srgb&dl=pexels-aleksandar-pasaric-1285625.jpg&fm=jpg',
-
-    'https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?cs=srgb&dl=pexels-pixabay-532826.jpg&fm=jpg',
-
-    'https://images.pexels.com/photos/2676642/pexels-photo-2676642.jpeg?cs=srgb&dl=pexels-griffin-wooldridge-2676642.jpg&fm=jpg',
-
-    'https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?cs=srgb&dl=pexels-stein-egil-liland-1933239.jpg&fm=jpg',
-
-    'https://images.pexels.com/photos/427679/pexels-photo-427679.jpeg?cs=srgb&dl=pexels-chris-schippers-427679.jpg&fm=jpg'
-
-  ];
-
+  
  
   
 
@@ -57,12 +47,12 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          centerTitle: true,
+          // centerTitle: true,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ImageIcon(
-                AssetImage('assets/logo.png'),
+                AssetImage('assets/CheapFly.png'),
                 size: 30.0,
 
 
@@ -70,7 +60,7 @@ class _HomePageState extends State<HomePage> {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text(
-                  'Search Ryanair'
+                  'Ryanair'
                 ),
               ),
             ],
@@ -88,17 +78,45 @@ class _HomePageState extends State<HomePage> {
                             elevation: 5,
                             color: Color.fromRGBO(7, 53, 144, 1),
                             child: Padding(
-                              padding: const EdgeInsets.all(16.0),
+                              padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
                               child: Column(
                                 children: [
+                                  
                                   Padding(
-                                    padding: const EdgeInsets.only(bottom: 15.0),
-                                    child: Text(
-                                      'One Way Flights',
-                                      style: TextStyle(
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
+                                    padding: const EdgeInsets.only(bottom: 5.0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(right: 8.0),
+                                          child: ImageIcon(
+                                            AssetImage('assets/one_way.png'),
+                                            size: 40.0,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        Text(
+                                          'One Way',
+                                          style: TextStyle(
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 8.0),
+                                    child: SizedBox(
+                                      width: 250.0,
+                                      child: Text(
+                                        'The cheapest one-way flight during the period of time you choose',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 12.0
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -116,70 +134,20 @@ class _HomePageState extends State<HomePage> {
                                           showDialog(
                                             context: context,
                                             builder: (context) => 
-                                            AlertDialog(
-                                            title: 
-                                                Column(
-                                                  children: [
-                                                    Icon(
-                                                      Icons.wifi_off_rounded,
-                                                      size: 30.0,
-                                                      color: Color.fromRGBO(7, 53, 144, 1),
-                                                    ),
-                                                    Padding(
-                                                      padding: const EdgeInsets.only(top:8.0),
-                                                      child: Text(
-                                                        'No Internet Connection'
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                            content: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Row(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                      Text(
-                                                          'Oops...'
-                                                        ),
-                                                      Text(
-                                                          'Please check'
-                                                        ),
-                                                      
-                                                    
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                            elevation: 5,
-                                            actions: [
-                                              Row(
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                children: [
-                                                  TextButton(
-                                                    child: Text(
-                                                      'OK',
-                                                      style: TextStyle(
-                                                        fontSize: 18.0,
-                                                        fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                                                    onPressed: () => Navigator.pop(context),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-
-                                          ),
+                                              NoInternet(),
+                                          
                                             );
                                         }
                                       },
                                       child: Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Icon(
-                                            Icons.airplane_ticket_rounded,
-                                            color: Color.fromRGBO(7, 53, 144, 1),
+                                          Transform.rotate(
+                                            angle: math.pi / 2 ,
+                                            child: Icon(
+                                              Icons.airplanemode_active_sharp,
+                                              color: Color.fromRGBO(7, 53, 144, 1),
+                                            ),
                                           ),
                                           Text(
                                             'Search',
@@ -211,13 +179,40 @@ class _HomePageState extends State<HomePage> {
                                   child: Column(
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(bottom: 15.0),
-                                        child: Text(
-                                          'Roundtrip Flights',
-                                          style: TextStyle(
-                                            fontSize: 20.0,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
+                                        padding: const EdgeInsets.only(bottom: 5.0),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(right: 8.0),
+                                              child: ImageIcon(
+                                                AssetImage('assets/roundtrip.png'),
+                                                size: 40.0,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            Text(
+                                              'Roundtrip Flights',
+                                              style: TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(bottom: 8.0),
+                                        child: SizedBox(
+                                          width: 250.0,
+                                          child: Text(
+                                            'The cheapest Roundtrip flight during the period of time you choose',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12.0
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -235,70 +230,74 @@ class _HomePageState extends State<HomePage> {
                                               showDialog(
                                                 context: context,
                                                 builder: (context) => 
-                                                AlertDialog(
-                                                title: 
-                                                    Column(
-                                                      children: [
-                                                        Icon(
-                                                          Icons.wifi_off_rounded,
-                                                          size: 30.0,
-                                                          color: Color.fromRGBO(7, 53, 144, 1),
-                                                        ),
-                                                        Padding(
-                                                          padding: const EdgeInsets.only(top:8.0),
-                                                          child: Text(
-                                                            'No Internet Connection'
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                content: Column(
-                                                  mainAxisSize: MainAxisSize.min,
-                                                  children: [
-                                                    Row(
-                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                      children: [
-                                                          Text(
-                                                              'Oops...'
-                                                            ),
-                                                          Text(
-                                                              'Please check'
-                                                            ),
+                                                  NoInternet(),
+                                              //   AlertDialog(
+                                              //   title: 
+                                              //       Column(
+                                              //         children: [
+                                              //           Icon(
+                                              //             Icons.wifi_off_rounded,
+                                              //             size: 30.0,
+                                              //             color: Color.fromRGBO(7, 53, 144, 1),
+                                              //           ),
+                                              //           Padding(
+                                              //             padding: const EdgeInsets.only(top:8.0),
+                                              //             child: Text(
+                                              //               'No Internet Connection'
+                                              //             ),
+                                              //           ),
+                                              //         ],
+                                              //       ),
+                                              //   content: Column(
+                                              //     mainAxisSize: MainAxisSize.min,
+                                              //     children: [
+                                              //       Row(
+                                              //         mainAxisAlignment: MainAxisAlignment.center,
+                                              //         children: [
+                                              //             Text(
+                                              //                 'Oops...'
+                                              //               ),
+                                              //             Text(
+                                              //                 'Please check'
+                                              //               ),
                                                           
                                                         
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                                elevation: 5,
-                                                actions: [
-                                                  Row(
-                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                    children: [
-                                                      TextButton(
-                                                        child: Text(
-                                                          'OK',
-                                                          style: TextStyle(
-                                                            fontSize: 18.0,
-                                                            fontWeight: FontWeight.bold,
-                                                          ),
-                                                        ),
-                                                        onPressed: () => Navigator.pop(context),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
+                                              //         ],
+                                              //       ),
+                                              //     ],
+                                              //   ),
+                                              //   elevation: 5,
+                                              //   actions: [
+                                              //     Row(
+                                              //       mainAxisAlignment: MainAxisAlignment.center,
+                                              //       children: [
+                                              //         TextButton(
+                                              //           child: Text(
+                                              //             'OK',
+                                              //             style: TextStyle(
+                                              //               fontSize: 18.0,
+                                              //               fontWeight: FontWeight.bold,
+                                              //             ),
+                                              //           ),
+                                              //           onPressed: () => Navigator.pop(context),
+                                              //         ),
+                                              //       ],
+                                              //     ),
+                                              //   ],
 
-                                              ),
+                                              // ),
                                                 );
                                             }
                                           },
                                           child: Row(
                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Icon(
-                                                Icons.airplane_ticket_rounded,
-                                                color: Color.fromRGBO(7, 53, 144, 1),
+                                              Transform.rotate(
+                                                angle: math.pi / 2 ,
+                                                child: Icon(
+                                                        Icons.airplanemode_active_sharp,
+                                                        color: Color.fromRGBO(7, 53, 144, 1),
+                                                      ),
                                               ),
                                               Text(
                                                 'Search',

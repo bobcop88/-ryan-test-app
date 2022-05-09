@@ -17,6 +17,11 @@ class RoundtripAnywhereResults {
 
     List<RoundTripAnywhereResultsApi> tempflights = [];
 
+    if(json['total'] == 0){
+
+        throw Error();
+      }
+
     for (int i = 0; i < json['fares'].length; i++){
       RoundTripAnywhereResultsApi flights = RoundTripAnywhereResultsApi.fromJson(json['fares'][i]);
       tempflights.add(flights);
@@ -89,10 +94,7 @@ class RoundTripAnywhereResultsApi{
 
 factory RoundTripAnywhereResultsApi.fromJson(Map<String, dynamic> json){
 
-  if(json['total'] == 0){
-
-        throw Error();
-      }else{
+  
 
 
         return RoundTripAnywhereResultsApi(
@@ -126,7 +128,7 @@ factory RoundTripAnywhereResultsApi.fromJson(Map<String, dynamic> json){
           totalPriceCurrency: json['summary']['price']['currencyCode'],
           tripDuration: json['summary']['tripDurationDays'],
         );
-      }
+      
 }
 
 }

@@ -48,7 +48,7 @@ class ArrivalAirportApi{
 
     final List airports = json.decode(response.body);
     final List airportFilter = airports.where((e) => e['connectingAirport'] == null ).toList();
-    print(airportFilter);
+    // print(airportFilter);
     
     airportFilter.sort(((a, b) => a['arrivalAirport']['name'].compareTo(b['arrivalAirport']['name'])));
     // print(depCode);
